@@ -49,6 +49,25 @@ driver = webdriver.Firefox()
 # else :
 #     print("else:işlem başarısız")
     
+#IMDb Top 250 Movies
+# url="https://www.imdb.com/"
+# driver.get(url)
+# menuButton=driver.find_element(By.XPATH,'//*[@id="imdbHeader-navDrawerOpen"]')
+# menuButton.click()
+# top250=driver.find_element(By.XPATH,'//*[@id="imdbHeader-navDrawer"]/div/div[2]/div/div[1]/span/div/div/ul/a[2]/span')
+# top250.click()
+# time.sleep(1)
+# filmler=driver.find_elements(By.XPATH,'//*[@id="__next"]/main/div/div[3]/section/div/div[2]/div/ul/li[@class="ipc-metadata-list-summary-item sc-bca49391-0 eypSaE cli-parent"]')
+# time.sleep(1)
+# for i in filmler:
+#     print(i.find_element(By.XPATH,'div[2]/div/div/div[1]/a/h3').text)
+
+url="https://tomspizzeria.b4a.app/"
+driver.get(url)
+musteriAdi=driver.find_element(By.ID,'musteri-adi').send_keys("mehmet")
+pizzaBoyu=driver.find_element(By.XPATH,'//*[@id="select-size"]/div/div/div[1]/input').click()
+pizzaEkle=driver.find_element(By.XPATH,'//*[@id="select-topping"]/div/div/div[1]/input').click()
+
 
 
 
