@@ -64,9 +64,23 @@ driver = webdriver.Firefox()
 
 url="https://tomspizzeria.b4a.app/"
 driver.get(url)
+time.sleep(1)
 musteriAdi=driver.find_element(By.ID,'musteri-adi').send_keys("mehmet")
-pizzaBoyu=driver.find_element(By.XPATH,'//*[@id="select-size"]/div/div/div[1]/input').click()
+pizzaBoyu=driver.find_element(By.XPATH,'//*[@id="select-size"]/div/div/div[1]/input')
+if pizzaBoyu.is_selected() == False:
+    pizzaBoyu.click()
+
 pizzaEkle=driver.find_element(By.XPATH,'//*[@id="select-topping"]/div/div/div[1]/input').click()
+pizzaOdeme=driver.find_element(By.XPATH,'//*[@id="odeme-tipi"]')
+pizzaOdeme.click()
+pizzaOdemeNakit=driver.find_element(By.XPATH,'//*[@id="odeme-tipi"]/option[2]')
+pizzaOdemeNakit.click()
+
+siparisButton=driver.find_element(By.ID,'siparis')
+if siparisButton.is_displayed()==False:
+    print("hata: aktif değil basılmıyor ")
+else:
+    siparisButton.click()
 
 
 
